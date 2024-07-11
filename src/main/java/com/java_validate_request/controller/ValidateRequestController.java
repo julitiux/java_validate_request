@@ -1,6 +1,7 @@
 package com.java_validate_request.controller;
 
 import com.java_validate_request.model.UserCommand;
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class ValidateRequestController {
 
   @PostMapping("/post")
-  public void post(@RequestBody UserCommand command) {
+  public void post(@Valid @RequestBody UserCommand command) {
     log.info("{}", command.getUsername());
     log.info("{}", command.getEmail());
   }
